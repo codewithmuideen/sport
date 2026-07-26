@@ -30,12 +30,18 @@ function stripHtml(html: string) {
   return html.replace(/<[^>]*>/g, "").trim();
 }
 
+// BBC's ichef CDN serves thumbnails as low-res 240px by default; the same
+// asset is available at much higher widths just by rewriting the path.
+function upscaleBbcImage(url: string) {
+  return url.replace(/(ichef\.bbci\.co\.uk\/[^/]+\/standard)\/\d+\//, "$1/976/");
+}
+
 function extractImage(item: FeedItem) {
-  if (item.thumbnail) return item.thumbnail;
-  if (item.enclosure?.link) return item.enclosure.link;
-  const source = item.content ?? item.description ?? "";
-  const match = /<img[^>]+src="([^">]+)"/i.exec(source);
-  return match?.[1] ?? FALLBACK_IMAGE;
+  const raw =
+    item.thumbnail ??
+    item.enclosure?.link ??
+    /<img[^>]+src="([^">]+)"/i.exec(item.content ?? item.description ?? "")?.[1];
+  return raw ? upscaleBbcImage(raw) : FALLBACK_IMAGE;
 }
 
 export type LiveNewsStatus = "loading" | "ready" | "error";

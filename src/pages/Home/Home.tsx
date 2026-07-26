@@ -3,6 +3,8 @@ import { Hero } from "@/components/Hero/Hero";
 import { SectionHeading } from "@/components/SectionHeading/SectionHeading";
 import { PlayerCard } from "@/components/PlayerCard/PlayerCard";
 import { ServiceCard } from "@/components/ServiceCard/ServiceCard";
+import { ProcessStack } from "@/components/ProcessStack/ProcessStack";
+import { OfferGrid } from "@/components/OfferGrid/OfferGrid";
 import { LiveNewsCard } from "@/components/LiveNewsCard/LiveNewsCard";
 import { StatBlock } from "@/components/StatBlock/StatBlock";
 import { Button } from "@/components/Button/Button";
@@ -88,24 +90,68 @@ export function Home() {
         </Reveal>
       </section>
 
+      {/* OUR PROCESS */}
+      <section className="relative pt-28 sm:pt-36 pb-8 container-px">
+        <SectionHeading
+          eyebrow="Our Process"
+          title="How We Work"
+          description="A clear, considered path from first conversation to global opportunity — the same process behind every player we represent."
+          align="center"
+          className="mx-auto"
+        />
+      </section>
+      <ProcessStack />
+
       {/* PLAYERS TEASER */}
       <section className="relative py-28 sm:py-36 container-px">
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-8 mb-16">
-          <SectionHeading eyebrow="Our Talent" title="Featured Players" className="mb-0" />
+          <SectionHeading
+            eyebrow="Our Players"
+            title={featured.length === 0 ? "Building Our Roster" : "Featured Players"}
+            className="mb-0"
+          />
           <Reveal delay={0.15}>
-            <Button to="/players" variant="outline">
-              View Full Roster
+            <Button to={featured.length === 0 ? "/contact" : "/players"} variant="outline">
+              {featured.length === 0 ? "Represent Me" : "View Full Roster"}
             </Button>
           </Reveal>
         </div>
 
-        <Stagger className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {featured.map((player, i) => (
-            <StaggerItem key={player.id}>
-              <PlayerCard player={player} index={i} />
-            </StaggerItem>
-          ))}
-        </Stagger>
+        {featured.length === 0 ? (
+          <Reveal delay={0.1}>
+            <div className="max-w-2xl mx-auto text-center border border-gold-500/20 bg-ink-900/60 px-8 py-14 sm:py-16">
+              <p className="text-silver-400 leading-relaxed">
+                GALZVIRT has just launched and we're actively signing our first players. Check back soon to meet the athletes we represent.
+              </p>
+              <Button to="/players" variant="primary" className="mt-8">
+                View The Roster
+              </Button>
+            </div>
+          </Reveal>
+        ) : (
+          <Stagger className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {featured.map((player, i) => (
+              <StaggerItem key={player.id}>
+                <PlayerCard player={player} index={i} />
+              </StaggerItem>
+            ))}
+          </Stagger>
+        )}
+      </section>
+
+      {/* WHAT WE OFFER */}
+      <section className="relative py-28 sm:py-36 bg-ink-900 container-px">
+        <SectionHeading
+          eyebrow="What We Offer"
+          title="Why Players Choose GALZVIRT"
+          description="Beyond contracts and negotiation, this is what representation actually feels like day to day."
+          align="center"
+          className="mx-auto"
+        />
+
+        <div className="mt-16">
+          <OfferGrid />
+        </div>
       </section>
 
       {/* CINEMATIC FULL-BLEED */}

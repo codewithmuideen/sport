@@ -1,4 +1,20 @@
-import { Reveal } from "@/components/Reveal/Reveal";
+import { Reveal, Stagger, StaggerItem } from "@/components/Reveal/Reveal";
+
+const CONTACT_DETAILS = [
+  {
+    label: "Phone",
+    lines: ["+44 7471 183908", "+234 916 167 2619"],
+    hrefs: ["tel:+447471183908", "tel:+2349161672619"],
+  },
+  {
+    label: "UK Office",
+    lines: ["510, New Providence Wharf", "London E14 9PB"],
+  },
+  {
+    label: "Nigeria Office",
+    lines: ["Maitama Heights, 49 Aguiyi Ironsi", "Maitama, Abuja"],
+  },
+];
 
 export function Contact() {
   const recipientEmail = "info@Galzvirtsports.com";
@@ -84,6 +100,34 @@ export function Contact() {
               </div>
             </div>
           </Reveal>
+
+          {/* Phone & Office Details */}
+          <Stagger className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-left">
+            {CONTACT_DETAILS.map((detail) => (
+              <StaggerItem key={detail.label}>
+                <div className="h-full border border-parchment/10 bg-ink-900/60 p-6 hover:border-gold-500/30 transition-colors duration-300">
+                  <p className="text-xs uppercase tracking-widest text-gold-400 font-semibold mb-3">
+                    {detail.label}
+                  </p>
+                  <div className="space-y-1 text-silver-300 text-sm leading-relaxed">
+                    {detail.lines.map((line, i) =>
+                      detail.hrefs ? (
+                        <a
+                          key={line}
+                          href={detail.hrefs[i]}
+                          className="block hover:text-gold-400 transition-colors"
+                        >
+                          {line}
+                        </a>
+                      ) : (
+                        <p key={line}>{line}</p>
+                      )
+                    )}
+                  </div>
+                </div>
+              </StaggerItem>
+            ))}
+          </Stagger>
         </div>
       </section>
     </div>

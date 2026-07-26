@@ -20,18 +20,26 @@ function InstagramIcon({ className }: { className?: string }) {
   );
 }
 
-function XIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} fill="currentColor" viewBox="0 0 24 24">
-      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-    </svg>
-  );
-}
-
 function YoutubeIcon({ className }: { className?: string }) {
   return (
     <svg className={className} fill="currentColor" viewBox="0 0 24 24">
       <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+    </svg>
+  );
+}
+
+function FacebookIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} fill="currentColor" viewBox="0 0 24 24">
+      <path d="M13.5 21v-7.5H16l.4-3H13.5V8.5c0-.87.24-1.46 1.49-1.46H16.5V3.36C16.22 3.32 15.26 3.25 14.14 3.25c-2.34 0-3.94 1.43-3.94 4.04V10.5H7.75v3h2.45V21h3.3z" />
+    </svg>
+  );
+}
+
+function XIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} fill="currentColor" viewBox="0 0 24 24">
+      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
     </svg>
   );
 }
@@ -45,10 +53,11 @@ function LinkedinIcon({ className }: { className?: string }) {
 }
 
 const SOCIAL_LINKS = [
-  { name: "Instagram", href: "#", icon: InstagramIcon },
-  { name: "X", href: "#", icon: XIcon },
-  { name: "LinkedIn", href: "#", icon: LinkedinIcon },
-  { name: "YouTube", href: "#", icon: YoutubeIcon },
+  { name: "Instagram", href: "https://www.instagram.com/galzvirtsports/", icon: InstagramIcon },
+  { name: "X", href: "https://x.com/Galzvirtsports", icon: XIcon },
+  { name: "LinkedIn", href: "https://www.linkedin.com/in/galzvirtsports/", icon: LinkedinIcon },
+  { name: "Facebook", href: "https://web.facebook.com/profile.php?id=61592109554259", icon: FacebookIcon },
+  { name: "YouTube", href: "https://www.youtube.com/@GalzvirtSports", icon: YoutubeIcon },
 ];
 
 const COLUMNS = [
@@ -166,7 +175,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-16">
           
           {/* Brand Info */}
-          <div className="lg:col-span-5">
+          <div className="lg:col-span-4">
             <Link to="/" className="inline-flex items-center gap-3 mb-6 group">
               <img
                 src="/assets/favicon.jpg"
@@ -195,6 +204,8 @@ export function Footer() {
                   <a
                     key={s.name}
                     href={s.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     aria-label={s.name}
                     className="h-10 w-10 rounded-xl bg-parchment/5 border border-parchment/10 flex items-center justify-center text-silver-300 hover:text-gold-300 hover:bg-gold-400/10 hover:border-gold-400/30 transition-all duration-300"
                   >
@@ -229,21 +240,35 @@ export function Footer() {
           ))}
 
           {/* Contact Details */}
-          <div className="lg:col-span-3">
+          <div className="lg:col-span-4">
             <h4 className="font-display text-xs uppercase tracking-[0.25em] text-gold-400 mb-6 font-semibold">
-              Headquarters
+              Get In Touch
             </h4>
             <ul className="space-y-3 text-sm text-silver-400 font-light">
               <li className="hover:text-parchment transition-colors">
-                <a href="mailto:hello@galzvirt.com">info@Galzvirtsports.com</a>
+                <a href="mailto:info@Galzvirtsports.com">info@Galzvirtsports.com</a>
               </li>
               <li className="hover:text-parchment transition-colors">
-                <a href="tel:+12125550198">+1 (212) 555-0198</a>
+                <a href="tel:+447471183908">+44 7471 183908</a>
               </li>
-              <li className="pt-2 leading-relaxed">
-                One Riverside Plaza, Suite 2400
+              <li className="hover:text-parchment transition-colors">
+                <a href="tel:+2349161672619">+234 916 167 2619</a>
+              </li>
+              <li className="pt-3 leading-relaxed">
+                <span className="block text-gold-400/80 text-xs uppercase tracking-wider mb-1">
+                  UK Office
+                </span>
+                510, New Providence Wharf
                 <br />
-                New York, NY 10023
+                London E14 9PB
+              </li>
+              <li className="pt-3 leading-relaxed">
+                <span className="block text-gold-400/80 text-xs uppercase tracking-wider mb-1">
+                  Nigeria Office
+                </span>
+                Maitama Heights, 49 Aguiyi Ironsi
+                <br />
+                Maitama, Abuja
               </li>
             </ul>
           </div>

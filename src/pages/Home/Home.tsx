@@ -36,33 +36,34 @@ export function Home() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>
             <SectionHeading
+              direction="left"
               eyebrow="Who We Are"
               title="A New Standard For Football Representation"
               description="GALZVIRT is a modern football agency dedicated to representing talent, managing careers, and creating opportunities for players to succeed at the highest level - built on trust, discretion, and relentless advocacy."
             />
-            <Reveal delay={0.24} className="mt-10">
+            <Reveal delay={0.24} direction="left" className="mt-10">
               <Button to="/about" variant="outline">
                 About The Agency
               </Button>
             </Reveal>
 
             <Stagger className="mt-16 grid grid-cols-2 gap-y-10 gap-x-6 max-w-md">
-              <StaggerItem>
+              <StaggerItem direction="bounce">
                 <PillarBlock value="2026" label="Year Founded" />
               </StaggerItem>
-              <StaggerItem>
+              <StaggerItem direction="bounce">
                 <PillarBlock value="Global" label="Ambition From Day One" />
               </StaggerItem>
-              <StaggerItem>
+              <StaggerItem direction="bounce">
                 <PillarBlock value="Player-First" label="Every Decision, Every Time" />
               </StaggerItem>
-              <StaggerItem>
+              <StaggerItem direction="bounce">
                 <PillarBlock value="Direct Access" label="Your Agent, Not A Call Centre" />
               </StaggerItem>
             </Stagger>
           </div>
 
-          <Reveal delay={0.1} className="relative">
+          <Reveal delay={0.1} direction="right" className="relative">
             <div className="relative aspect-[4/5] overflow-hidden">
               <img src="/assets/history.jpg" alt="GALZVIRT player" className="h-full w-full object-cover" />
               <div className="absolute inset-0 border border-gold-500/20" />
@@ -90,7 +91,7 @@ export function Home() {
 
         <Stagger className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-parchment/10">
           {services.map((service, i) => (
-            <StaggerItem key={service.id} className="bg-ink-900">
+            <StaggerItem key={service.id} direction="bounce" className="bg-ink-900">
               <ServiceCard service={service} index={i} />
             </StaggerItem>
           ))}
@@ -144,7 +145,7 @@ export function Home() {
         ) : (
           <Stagger className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {featured.map((player, i) => (
-              <StaggerItem key={player.id}>
+              <StaggerItem key={player.id} direction="bounce">
                 <PlayerCard player={player} index={i} />
               </StaggerItem>
             ))}
@@ -177,10 +178,10 @@ export function Home() {
         <div className="absolute inset-0 bg-ink/70" />
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-ink/60" />
         <div className="relative z-10 h-full flex flex-col items-center justify-center text-center container-px">
-          <Reveal>
+          <Reveal direction="down">
             <p className="eyebrow mb-6">Talent &middot; Opportunity &middot; Excellence</p>
           </Reveal>
-          <Reveal delay={0.1}>
+          <Reveal delay={0.1} direction="down">
             <h2 className="font-display uppercase text-5xl sm:text-7xl lg:text-8xl leading-[0.9] max-w-4xl text-parchment text-balance">
               The Game Deserves <span className="gold-text">Real Advocacy</span>
             </h2>
@@ -226,7 +227,7 @@ export function Home() {
         {newsStatus === "ready" && (
           <Stagger className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
             {latestNews.slice(0, 3).map((article) => (
-              <StaggerItem key={article.id}>
+              <StaggerItem key={article.id} direction="bounce">
                 <LiveNewsCard article={article} />
               </StaggerItem>
             ))}

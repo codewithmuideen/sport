@@ -1,4 +1,4 @@
-import { Reveal } from "@/components/Reveal/Reveal";
+import { Reveal, type RevealDirection } from "@/components/Reveal/Reveal";
 import { cn } from "@/utils/cn";
 
 interface SectionHeadingProps {
@@ -7,6 +7,7 @@ interface SectionHeadingProps {
   description?: string;
   align?: "left" | "center";
   light?: boolean;
+  direction?: RevealDirection;
   className?: string;
 }
 
@@ -16,6 +17,7 @@ export function SectionHeading({
   description,
   align = "left",
   light = false,
+  direction = "up",
   className,
 }: SectionHeadingProps) {
   return (
@@ -27,11 +29,11 @@ export function SectionHeading({
       )}
     >
       {eyebrow && (
-        <Reveal>
+        <Reveal direction={direction}>
           <p className="eyebrow mb-4">{eyebrow}</p>
         </Reveal>
       )}
-      <Reveal delay={0.08}>
+      <Reveal delay={0.08} direction={direction}>
         <h2
           className={cn(
             "font-heading font-semibold uppercase text-4xl sm:text-5xl lg:text-6xl leading-[0.95] text-balance",
@@ -42,7 +44,7 @@ export function SectionHeading({
         </h2>
       </Reveal>
       {description && (
-        <Reveal delay={0.16}>
+        <Reveal delay={0.16} direction={direction}>
           <p className="mt-6 text-base sm:text-lg text-silver-300/80 leading-relaxed text-balance">
             {description}
           </p>

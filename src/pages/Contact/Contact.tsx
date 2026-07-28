@@ -38,7 +38,7 @@ export function Contact() {
 
         <div className="relative z-10 max-w-4xl mx-auto space-y-16 text-center">
           {/* Main Heading & Intro */}
-          <Reveal>
+          <Reveal direction="down">
             <div className="space-y-6">
               <span className="text-xs uppercase tracking-widest text-silver-400">
                 Get In Touch
@@ -54,7 +54,7 @@ export function Contact() {
           </Reveal>
 
           {/* Email Action Card */}
-          <Reveal delay={0.2}>
+          <Reveal delay={0.2} direction="bounce">
             <div className="relative border-2 border-gold-500/40 bg-ink-900/80 p-8 sm:p-12 backdrop-blur-sm group overflow-hidden">
               {/* Subtle hover background highlight */}
               <div className="absolute inset-0 bg-gold-500 opacity-5 group-hover:opacity-10 transition-opacity duration-300 pointer-events-none" />
@@ -111,8 +111,8 @@ export function Contact() {
 
           {/* Phone & Office Details */}
           <Stagger className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-left">
-            {CONTACT_DETAILS.map((detail) => (
-              <StaggerItem key={detail.label}>
+            {CONTACT_DETAILS.map((detail, i) => (
+              <StaggerItem key={detail.label} direction={i === 0 ? "left" : i === 1 ? "up" : "right"}>
                 <div className="h-full border border-parchment/10 bg-ink-900/60 p-6 hover:border-gold-500/30 transition-colors duration-300">
                   <p className="text-xs uppercase tracking-widest text-gold-400 font-semibold mb-3">
                     {detail.label}

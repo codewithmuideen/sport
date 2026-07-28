@@ -18,6 +18,7 @@ export function News() {
     <div>
       <section className="relative pt-40 pb-16 sm:pt-48 sm:pb-20 container-px">
         <SectionHeading
+          direction="down"
           eyebrow="Insights"
           title="News & Updates"
           description="The latest United Kingdom football headlines, sourced live from BBC Sport and updated throughout the day."
@@ -47,7 +48,7 @@ export function News() {
         {status === "ready" && (
           <Stagger className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-16">
             {articles.map((article) => (
-              <StaggerItem key={article.id}>
+              <StaggerItem key={article.id} direction="bounce">
                 <LiveNewsCard article={article} />
               </StaggerItem>
             ))}

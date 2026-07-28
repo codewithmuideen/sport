@@ -67,7 +67,7 @@ export function OfferGrid() {
   return (
     <Stagger className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
       {OFFERS.map((offer) => (
-        <StaggerItem key={offer.title}>
+        <StaggerItem key={offer.title} direction="bounce">
           <div className="group relative h-full overflow-hidden rounded-2xl border border-parchment/10 bg-ink-800/60 hover:border-gold-500/30 transition-colors duration-500 p-8">
             <div className="absolute -top-10 -left-10 h-32 w-32 rounded-full border border-parchment/5 group-hover:border-gold-500/10 transition-colors duration-500" />
 

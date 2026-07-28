@@ -36,7 +36,7 @@ export function Players() {
 
       <section className="pb-28 sm:pb-36 container-px">
         {players.length === 0 ? (
-          <Reveal>
+          <Reveal direction="bounce">
             <div className="max-w-2xl mx-auto text-center border border-gold-500/20 bg-ink-900/60 px-8 py-16 sm:py-20">
               <div className="mx-auto mb-6 flex h-14 w-14 items-center justify-center rounded-full bg-gold-500/10 border border-gold-500/30">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-gold-400">
@@ -63,7 +63,7 @@ export function Players() {
           </Reveal>
         ) : (
           <>
-            <Reveal className="flex flex-wrap gap-3 mb-14">
+            <Reveal direction="down" className="flex flex-wrap gap-3 mb-14">
               {(["All", ...positions] as const).map((pos) => (
                 <button
                   key={pos}
@@ -82,7 +82,7 @@ export function Players() {
 
             <Stagger key={filter} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {filtered.map((player, i) => (
-                <StaggerItem key={player.id}>
+                <StaggerItem key={player.id} direction="bounce">
                   <PlayerCard player={player} index={i} />
                 </StaggerItem>
               ))}

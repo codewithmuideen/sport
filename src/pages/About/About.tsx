@@ -56,15 +56,15 @@ export function About() {
         />
 
         <div className="relative z-10 max-w-4xl">
-          <Reveal>
+          <Reveal direction="down">
             <p className="eyebrow mb-6">About GALZVIRT</p>
           </Reveal>
-          <Reveal delay={0.1}>
+          <Reveal delay={0.1} direction="down">
             <h1 className="font-display uppercase text-6xl sm:text-7xl lg:text-8xl leading-[0.9] text-balance">
               Talent. <span className="gold-text">Opportunity.</span> Excellence.
             </h1>
           </Reveal>
-          <Reveal delay={0.2}>
+          <Reveal delay={0.2} direction="down">
             <p className="mt-8 max-w-2xl text-silver-300/90 text-lg leading-relaxed">
               A modern football agency dedicated to representing talent, managing careers, and creating
               opportunities for players to succeed at the highest level of the game.
@@ -75,7 +75,7 @@ export function About() {
 
       <section className="py-24 sm:py-32 container-px bg-ink-900">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <Reveal>
+          <Reveal direction="left">
             <div className="relative aspect-[4/5] overflow-hidden">
               <img src="/assets/bg2.jpg" alt="Team" className="h-full w-full object-cover" />
               <div className="absolute inset-0 border border-gold-500/20" />
@@ -83,6 +83,7 @@ export function About() {
           </Reveal>
           <div>
             <SectionHeading
+              direction="right"
               eyebrow="Our Story"
               title="Built By People Who Understand The Game"
               description="GALZVIRT was founded on a simple belief: players deserve advisors who understand both the business of football and the pressure of playing it. We're building a team of agents, lawyers, and career strategists ready to represent talent at every stage - from academy prospects to full internationals."
@@ -91,16 +92,16 @@ export function About() {
         </div>
 
         <Stagger className="mt-24 grid grid-cols-2 sm:grid-cols-4 gap-10">
-          <StaggerItem>
+          <StaggerItem direction="bounce">
             <PillarBlock value="2026" label="Year Founded" />
           </StaggerItem>
-          <StaggerItem>
+          <StaggerItem direction="bounce">
             <PillarBlock value="Global" label="Ambition From Day One" />
           </StaggerItem>
-          <StaggerItem>
+          <StaggerItem direction="bounce">
             <PillarBlock value="Player-First" label="Every Decision, Every Time" />
           </StaggerItem>
-          <StaggerItem>
+          <StaggerItem direction="bounce">
             <PillarBlock value="Direct Access" label="Your Agent, Not A Call Centre" />
           </StaggerItem>
         </Stagger>
@@ -110,7 +111,7 @@ export function About() {
         <SectionHeading eyebrow="What We Stand For" title="Our Values" align="center" className="mx-auto" />
         <Stagger className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-parchment/10">
           {values.map((v) => (
-            <StaggerItem key={v.title} className="bg-ink p-8 sm:p-10">
+            <StaggerItem key={v.title} direction="bounce" className="bg-ink p-8 sm:p-10">
               <h3 className="font-heading uppercase text-xl text-gold-400 mb-3">{v.title}</h3>
               <p className="text-silver-400 text-sm leading-relaxed">{v.text}</p>
             </StaggerItem>
@@ -128,7 +129,7 @@ export function About() {
         />
         <div className="mt-16 max-w-2xl mx-auto">
           {roadmap.map((r, i) => (
-            <Reveal key={r.phase} delay={i * 0.06}>
+            <Reveal key={r.phase} direction={i % 2 === 0 ? "left" : "right"}>
               <div className="flex gap-8 py-6 border-b border-parchment/10 last:border-0">
                 <span className="font-display text-lg sm:text-xl text-gold-400 w-24 shrink-0">{r.phase}</span>
                 <p className="text-silver-300 leading-relaxed">{r.text}</p>

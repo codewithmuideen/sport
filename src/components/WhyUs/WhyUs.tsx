@@ -72,7 +72,7 @@ export function WhyUs() {
 
       <div className="relative z-10 container-px grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-center">
         {/* Badge composition */}
-        <Reveal>
+        <Reveal direction="left">
           {/* Mobile: simple row */}
           <div className="flex sm:hidden items-center justify-center gap-4">
             <BadgeFrame src="/assets/badge-emblem.png" className="h-28 w-28" />
@@ -97,6 +97,7 @@ export function WhyUs() {
         {/* Copy + features */}
         <div>
           <SectionHeading
+            direction="right"
             eyebrow="Why GALZVIRT"
             title="Why Choose Us"
             description="Your trusted partner in football representation — built on football expertise, honest advice, and standing beside players at every stage of their career."
@@ -104,7 +105,7 @@ export function WhyUs() {
 
           <Stagger className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-10">
             {FEATURES.map((f) => (
-              <StaggerItem key={f.title}>
+              <StaggerItem key={f.title} direction="bounce">
                 <div className="h-10 w-10 flex items-center justify-center rounded-full border border-gold-500/30 text-gold-400 mb-4">
                   {f.icon}
                 </div>

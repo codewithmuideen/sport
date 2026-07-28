@@ -13,9 +13,9 @@ export function Loader() {
           <span className="absolute inset-0 rounded-full border-2 border-gold-500/20" />
           <span className="absolute inset-0 rounded-full border-2 border-transparent border-t-gold-400 animate-spin" />
           <img
-            src="/assets/favicon.jpg"
+            src="/assets/favicon.png"
             alt="GALZVIRT"
-            className="absolute inset-0 m-auto h-9 w-9 rounded-sm object-cover"
+            className="absolute inset-0 m-auto h-9 w-9 object-contain"
           />
         </div>
         <span className="font-heading text-[10px] uppercase tracking-widest3 text-gold-400/80">

@@ -12,7 +12,7 @@ export function News() {
         <SectionHeading
           eyebrow="Insights"
           title="News & Updates"
-          description="The latest UK football headlines, sourced live from BBC Sport and updated throughout the day."
+          description="The latest United Kingdom football headlines, sourced live from BBC Sport and updated throughout the day."
         />
       </section>
 

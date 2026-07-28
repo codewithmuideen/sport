@@ -7,7 +7,7 @@ const CONTACT_DETAILS = [
     hrefs: ["tel:+447471183908", "tel:+2349161672619"],
   },
   {
-    label: "UK Office",
+    label: "United Kingdom Office",
     lines: ["510, New Providence Wharf", "London E14 9PB"],
   },
   {

@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { SectionHeading } from "@/components/SectionHeading/SectionHeading";
 import { StatBlock } from "@/components/StatBlock/StatBlock";
 import { Reveal, Stagger, StaggerItem } from "@/components/Reveal/Reveal";
@@ -36,6 +37,17 @@ export function About() {
       <section className="relative pt-40 pb-24 sm:pt-48 sm:pb-32 container-px overflow-hidden">
         <img src="/assets/bg15.jpg" alt="" className="absolute inset-0 h-full w-full object-cover opacity-25" />
         <div className="absolute inset-0 bg-gradient-to-b from-ink via-ink/85 to-ink" />
+
+        <motion.img
+          src="/assets/badge-emblem.png"
+          alt="GALZVIRT Sports crest — Built Around The Player"
+          initial={{ opacity: 0, scale: 0.85, rotate: -8 }}
+          animate={{ opacity: 1, scale: 1, rotate: 0 }}
+          transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+          whileHover={{ rotate: 6, scale: 1.05 }}
+          className="hidden md:block absolute top-24 right-6 lg:right-16 h-32 lg:h-44 w-auto drop-shadow-[0_10px_30px_rgba(0,0,0,0.5)]"
+        />
+
         <div className="relative z-10 max-w-4xl">
           <Reveal>
             <p className="eyebrow mb-6">About GALZVIRT</p>

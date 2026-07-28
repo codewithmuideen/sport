@@ -151,7 +151,7 @@ export function Footer() {
               />
               <button
                 type="submit"
-                className="px-7 py-3.5 rounded-full bg-gradient-to-r from-gold-400 to-amber-300 text-ink font-semibold text-sm hover:brightness-110 transition-all duration-300 flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(212,175,55,0.2)] shrink-0"
+                className="px-7 py-3.5 rounded-full bg-gradient-to-r from-gold-500 to-gold-300 text-ink font-semibold text-sm hover:brightness-110 transition-all duration-300 flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(212,175,55,0.2)] shrink-0"
               >
                 Subscribe
                 <ArrowUpRightIcon className="w-4 h-4" />
@@ -176,15 +176,12 @@ export function Footer() {
           
           {/* Brand Info */}
           <div className="lg:col-span-4">
-            <Link to="/" className="inline-flex items-center gap-3 mb-6 group">
+            <Link to="/" className="inline-flex items-center mb-6 group">
               <img
-                src="/assets/favicon.jpg"
-                alt="GALZVIRT"
-                className="h-10 w-10 rounded-lg object-cover ring-1 ring-gold-400/30 group-hover:scale-105 transition-transform"
+                src="/assets/logo-horizontal.png"
+                alt="GALZVIRT Sports"
+                className="h-9 w-auto transition-transform duration-300 group-hover:scale-105"
               />
-              <span className="font-display text-xl font-bold tracking-widest uppercase text-parchment">
-                Galz<span className="text-gold-400">virt</span>
-              </span>
             </Link>
 
             <p className="text-silver-400 text-sm leading-relaxed max-w-md font-light mb-6">
@@ -256,7 +253,7 @@ export function Footer() {
               </li>
               <li className="pt-3 leading-relaxed">
                 <span className="block text-gold-400/80 text-xs uppercase tracking-wider mb-1">
-                  UK Office
+                  United Kingdom Office
                 </span>
                 510, New Providence Wharf
                 <br />

@@ -58,15 +58,12 @@ export function Navbar() {
     >
       <div className="container-px flex items-center justify-between">
         {/* Brand Logo */}
-        <Link to="/" className="flex items-center gap-3 z-50">
+        <Link to="/" className="flex items-center z-50 group">
           <img
-            src="/assets/favicon.jpg"
-            alt="GALZVIRT"
-            className="h-9 w-9 sm:h-10 sm:w-10 rounded-sm object-cover"
+            src="/assets/logo-horizontal.png"
+            alt="GALZVIRT Sports"
+            className="h-8 sm:h-9 w-auto transition-transform duration-300 group-hover:scale-105"
           />
-          <span className="font-heading font-semibold tracking-widest uppercase text-sm sm:text-base">
-            Galz<span className="gold-text">virt</span>
-          </span>
         </Link>
 
         {/* Desktop Navigation */}

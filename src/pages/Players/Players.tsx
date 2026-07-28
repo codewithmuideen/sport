@@ -5,9 +5,17 @@ import { Stagger, StaggerItem, Reveal } from "@/components/Reveal/Reveal";
 import { Button } from "@/components/Button/Button";
 import { players } from "@/data/players";
 import { cn } from "@/utils/cn";
+import { useSeo } from "@/hooks/useSeo";
 import type { Position } from "@/types";
 
 export function Players() {
+  useSeo({
+    title: "Our Players",
+    description:
+      "Meet the players represented by GALZVIRT Sports Agency, a football agency built around player-first career management.",
+    path: "/players",
+  });
+
   const positions = useMemo(
     () => Array.from(new Set(players.map((p) => p.position))) as Position[],
     []

@@ -1,4 +1,5 @@
 import { Reveal, Stagger, StaggerItem } from "@/components/Reveal/Reveal";
+import { useSeo } from "@/hooks/useSeo";
 
 const CONTACT_DETAILS = [
   {
@@ -17,6 +18,13 @@ const CONTACT_DETAILS = [
 ];
 
 export function Contact() {
+  useSeo({
+    title: "Contact Us",
+    description:
+      "Get in touch with GALZVIRT Sports Agency - for players seeking representation, clubs, and brand partners.",
+    path: "/contact",
+  });
+
   const recipientEmail = "info@Galzvirtsports.com";
 
   return (

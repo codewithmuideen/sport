@@ -3,6 +3,7 @@ import { getArticleBySlug, news } from "@/data/news";
 import { Reveal } from "@/components/Reveal/Reveal";
 import { NewsCard } from "@/components/NewsCard/NewsCard";
 import { Button } from "@/components/Button/Button";
+import { useSeo } from "@/hooks/useSeo";
 
 const dateFmt = (iso: string) =>
   new Date(iso).toLocaleDateString("en-US", { day: "numeric", month: "long", year: "numeric" });
@@ -10,6 +11,13 @@ const dateFmt = (iso: string) =>
 export function NewsDetails() {
   const { slug } = useParams();
   const article = slug ? getArticleBySlug(slug) : undefined;
+
+  useSeo({
+    title: article ? article.title : "Article Not Found",
+    description: article ? article.excerpt : "This article could not be found.",
+    path: `/news/${slug ?? ""}`,
+    noindex: !article,
+  });
 
   if (!article) return <Navigate to="/news" replace />;
 

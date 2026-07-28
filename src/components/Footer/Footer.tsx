@@ -185,12 +185,12 @@ export function Footer() {
             </Link>
 
             <p className="text-silver-400 text-sm leading-relaxed max-w-md font-light mb-6">
-              GALZVIRT Sports Agency represents elite football talent globally - defining modern careers, commanding negotiations, and shaping legacies with uncompromised excellence.
+              GALZVIRT Sports Agency is a newly founded football agency built to represent talent, manage careers, and create real opportunities - with the same standard of care at every stage of growth.
             </p>
 
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold-400/10 border border-gold-400/20 text-xs text-gold-300 font-medium">
               <span className="w-1.5 h-1.5 rounded-full bg-gold-400 animate-pulse" />
-              FIFA Licensed Football Agency
+              Est. 2026 &middot; Onboarding Our First Players
             </div>
 
             {/* Social Media Links */}

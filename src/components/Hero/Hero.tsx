@@ -126,12 +126,12 @@ export function Hero() {
             className="hidden lg:flex flex-col gap-8 lg:col-span-4 items-end"
           >
              {[
-               { label: "Elite Athletes", val: "50+" },
-               { label: "Pro Transfers", val: "120" },
-               { label: "Global Reach", val: "24" }
+               { label: "Representation", val: "Player-First" },
+               { label: "Network", val: "Global" },
+               { label: "Terms & Advice", val: "Transparent" },
              ].map((stat, i) => (
                <div key={i} className="text-right group cursor-default">
-                 <p className="text-gold-400 font-display text-4xl lg:text-5xl font-bold mb-1 group-hover:italic transition-all duration-300">{stat.val}</p>
+                 <p className="text-gold-400 font-display text-2xl lg:text-3xl font-bold mb-1 group-hover:italic transition-all duration-300">{stat.val}</p>
                  <p className="text-silver-400 uppercase tracking-[0.25em] text-[10px] font-medium">{stat.label}</p>
                </div>
              ))}

@@ -1,8 +1,9 @@
 import { motion } from "framer-motion";
 import { SectionHeading } from "@/components/SectionHeading/SectionHeading";
-import { StatBlock } from "@/components/StatBlock/StatBlock";
+import { PillarBlock } from "@/components/PillarBlock/PillarBlock";
 import { Reveal, Stagger, StaggerItem } from "@/components/Reveal/Reveal";
 import { Button } from "@/components/Button/Button";
+import { useSeo } from "@/hooks/useSeo";
 
 const values = [
   {
@@ -23,15 +24,21 @@ const values = [
   },
 ];
 
-const timeline = [
-  { year: "2014", text: "GALZVIRT founded with a single mission: put players first." },
-  { year: "2017", text: "Opened our first international office, expanding representation across Europe." },
-  { year: "2020", text: "Launched a dedicated sponsorship and personal-brand division." },
-  { year: "2023", text: "Scouting network reaches academies across four continents." },
-  { year: "2026", text: "Representing 64+ players across 21 countries." },
+const roadmap = [
+  { phase: "Phase 01", text: "Founding GALZVIRT and onboarding our first represented players." },
+  { phase: "Phase 02", text: "Building direct relationships with clubs, agents, and brands across key markets." },
+  { phase: "Phase 03", text: "Expanding sponsorship and personal-brand opportunities for our roster." },
+  { phase: "Phase 04", text: "Growing GALZVIRT's presence across new leagues and territories worldwide." },
 ];
 
 export function About() {
+  useSeo({
+    title: "About Us",
+    description:
+      "Learn about GALZVIRT Sports Agency - a newly founded football agency built on trust, discretion, and player-first advocacy.",
+    path: "/about",
+  });
+
   return (
     <div>
       <section className="relative pt-40 pb-24 sm:pt-48 sm:pb-32 container-px overflow-hidden">
@@ -78,23 +85,23 @@ export function About() {
             <SectionHeading
               eyebrow="Our Story"
               title="Built By People Who Understand The Game"
-              description="GALZVIRT was founded on a simple belief: players deserve advisors who understand both the business of football and the pressure of playing it. Today our team of agents, lawyers, and career strategists represents talent across four continents - from academy prospects to full internationals."
+              description="GALZVIRT was founded on a simple belief: players deserve advisors who understand both the business of football and the pressure of playing it. We're building a team of agents, lawyers, and career strategists ready to represent talent at every stage - from academy prospects to full internationals."
             />
           </div>
         </div>
 
         <Stagger className="mt-24 grid grid-cols-2 sm:grid-cols-4 gap-10">
           <StaggerItem>
-            <StatBlock target={64} suffix="+" label="Players Represented" />
+            <PillarBlock value="2026" label="Year Founded" />
           </StaggerItem>
           <StaggerItem>
-            <StatBlock target={21} label="Countries" />
+            <PillarBlock value="Global" label="Ambition From Day One" />
           </StaggerItem>
           <StaggerItem>
-            <StatBlock target={38} label="Partner Clubs" />
+            <PillarBlock value="Player-First" label="Every Decision, Every Time" />
           </StaggerItem>
           <StaggerItem>
-            <StatBlock target={12} label="Years of Experience" />
+            <PillarBlock value="Direct Access" label="Your Agent, Not A Call Centre" />
           </StaggerItem>
         </Stagger>
       </section>
@@ -112,13 +119,19 @@ export function About() {
       </section>
 
       <section className="py-24 sm:py-32 container-px bg-ink-900">
-        <SectionHeading eyebrow="Milestones" title="Our Journey" align="center" className="mx-auto" />
+        <SectionHeading
+          eyebrow="What's Next"
+          title="Where We're Headed"
+          description="We're just getting started. Here's the roadmap we're building GALZVIRT around."
+          align="center"
+          className="mx-auto"
+        />
         <div className="mt-16 max-w-2xl mx-auto">
-          {timeline.map((t, i) => (
-            <Reveal key={t.year} delay={i * 0.06}>
+          {roadmap.map((r, i) => (
+            <Reveal key={r.phase} delay={i * 0.06}>
               <div className="flex gap-8 py-6 border-b border-parchment/10 last:border-0">
-                <span className="font-display text-3xl text-gold-400 w-24 shrink-0">{t.year}</span>
-                <p className="text-silver-300 leading-relaxed">{t.text}</p>
+                <span className="font-display text-lg sm:text-xl text-gold-400 w-24 shrink-0">{r.phase}</span>
+                <p className="text-silver-300 leading-relaxed">{r.text}</p>
               </div>
             </Reveal>
           ))}

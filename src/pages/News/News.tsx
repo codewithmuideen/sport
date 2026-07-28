@@ -2,8 +2,16 @@ import { SectionHeading } from "@/components/SectionHeading/SectionHeading";
 import { LiveNewsCard } from "@/components/LiveNewsCard/LiveNewsCard";
 import { Stagger, StaggerItem } from "@/components/Reveal/Reveal";
 import { useLiveNews } from "@/hooks/useLiveNews";
+import { useSeo } from "@/hooks/useSeo";
 
 export function News() {
+  useSeo({
+    title: "Football News",
+    description:
+      "The latest United Kingdom football headlines, sourced live from BBC Sport and updated throughout the day.",
+    path: "/news",
+  });
+
   const { articles, status } = useLiveNews();
 
   return (

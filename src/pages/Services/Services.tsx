@@ -3,8 +3,16 @@ import { ServiceCard } from "@/components/ServiceCard/ServiceCard";
 import { Reveal, Stagger, StaggerItem } from "@/components/Reveal/Reveal";
 import { Button } from "@/components/Button/Button";
 import { services } from "@/data/services";
+import { useSeo } from "@/hooks/useSeo";
 
 export function Services() {
+  useSeo({
+    title: "Our Services",
+    description:
+      "Contract negotiation, career development, club placement, and sponsorship - full-service football representation from GALZVIRT Sports Agency.",
+    path: "/services",
+  });
+
   return (
     <div>
       <section className="relative pt-40 pb-24 sm:pt-48 sm:pb-32 container-px overflow-hidden">

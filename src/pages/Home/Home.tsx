@@ -5,15 +5,25 @@ import { PlayerCard } from "@/components/PlayerCard/PlayerCard";
 import { ServiceCard } from "@/components/ServiceCard/ServiceCard";
 import { ProcessStack } from "@/components/ProcessStack/ProcessStack";
 import { OfferGrid } from "@/components/OfferGrid/OfferGrid";
+import { WhyUs } from "@/components/WhyUs/WhyUs";
+import { Faq } from "@/components/Faq/Faq";
 import { LiveNewsCard } from "@/components/LiveNewsCard/LiveNewsCard";
-import { StatBlock } from "@/components/StatBlock/StatBlock";
+import { PillarBlock } from "@/components/PillarBlock/PillarBlock";
 import { Button } from "@/components/Button/Button";
 import { Reveal, Stagger, StaggerItem } from "@/components/Reveal/Reveal";
 import { players } from "@/data/players";
 import { services } from "@/data/services";
 import { useLiveNews } from "@/hooks/useLiveNews";
+import { useSeo } from "@/hooks/useSeo";
 
 export function Home() {
+  useSeo({
+    title: "Football Player Representation & Career Management",
+    description:
+      "GALZVIRT Sports Agency represents football talent, manages careers, and creates real opportunities - from contract negotiation to global sponsorship.",
+    path: "/",
+  });
+
   const featured = players.filter((p) => p.featured);
   const { articles: latestNews, status: newsStatus } = useLiveNews();
 
@@ -38,16 +48,16 @@ export function Home() {
 
             <Stagger className="mt-16 grid grid-cols-2 gap-y-10 gap-x-6 max-w-md">
               <StaggerItem>
-                <StatBlock target={64} suffix="+" label="Players Represented" />
+                <PillarBlock value="2026" label="Year Founded" />
               </StaggerItem>
               <StaggerItem>
-                <StatBlock target={21} label="Countries" />
+                <PillarBlock value="Global" label="Ambition From Day One" />
               </StaggerItem>
               <StaggerItem>
-                <StatBlock target={38} label="Partner Clubs" />
+                <PillarBlock value="Player-First" label="Every Decision, Every Time" />
               </StaggerItem>
               <StaggerItem>
-                <StatBlock target={12} label="Years of Experience" />
+                <PillarBlock value="Direct Access" label="Your Agent, Not A Call Centre" />
               </StaggerItem>
             </Stagger>
           </div>
@@ -58,12 +68,15 @@ export function Home() {
               <div className="absolute inset-0 border border-gold-500/20" />
             </div>
             <div className="absolute -bottom-8 -left-8 hidden sm:block bg-ink-800 border border-gold-500/30 px-8 py-6">
-              <p className="font-display text-4xl gold-text">12</p>
-              <p className="text-xs uppercase tracking-widest text-silver-400 mt-1">Years Building Careers</p>
+              <p className="font-display text-4xl gold-text">2026</p>
+              <p className="text-xs uppercase tracking-widest text-silver-400 mt-1">The Year We Began</p>
             </div>
           </Reveal>
         </div>
       </section>
+
+      {/* WHY US */}
+      <WhyUs />
 
       {/* SERVICES */}
       <section className="relative py-28 sm:py-36 bg-ink-900 container-px">
@@ -219,6 +232,18 @@ export function Home() {
             ))}
           </Stagger>
         )}
+      </section>
+
+      {/* FAQ */}
+      <section className="relative py-28 sm:py-36 container-px">
+        <SectionHeading
+          eyebrow="FAQ"
+          title="Common Questions"
+          description="Everything players, clubs, and brands most often ask us before getting started."
+          align="center"
+          className="mx-auto mb-16"
+        />
+        <Faq />
       </section>
 
       {/* CONTACT CTA */}

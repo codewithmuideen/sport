@@ -2,10 +2,20 @@ import { Navigate, useParams } from "react-router-dom";
 import { getPlayerById } from "@/data/players";
 import { Reveal, Stagger, StaggerItem } from "@/components/Reveal/Reveal";
 import { Button } from "@/components/Button/Button";
+import { useSeo } from "@/hooks/useSeo";
 
 export function PlayerDetails() {
   const { id } = useParams();
   const player = id ? getPlayerById(id) : undefined;
+
+  useSeo({
+    title: player ? player.name : "Player Not Found",
+    description: player
+      ? player.bio.slice(0, 155)
+      : "This player profile could not be found.",
+    path: `/players/${id ?? ""}`,
+    noindex: !player,
+  });
 
   if (!player) return <Navigate to="/players" replace />;
 

@@ -56,6 +56,7 @@ export default {
       animation: {
         "fade-up": "fadeUp 0.8s cubic-bezier(0.16,1,0.3,1) forwards",
         marquee: "marquee 28s linear infinite",
+        shine: "shine 1.15s cubic-bezier(0.16,1,0.3,1)",
       },
       keyframes: {
         fadeUp: {
@@ -65,6 +66,10 @@ export default {
         marquee: {
           "0%": { transform: "translateX(0)" },
           "100%": { transform: "translateX(-50%)" },
+        },
+        shine: {
+          "0%": { transform: "translateX(-160%) skewX(-20deg)" },
+          "100%": { transform: "translateX(260%) skewX(-20deg)" },
         },
       },
       maxWidth: {

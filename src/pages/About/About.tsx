@@ -3,6 +3,7 @@ import { SectionHeading } from "@/components/SectionHeading/SectionHeading";
 import { PillarBlock } from "@/components/PillarBlock/PillarBlock";
 import { Reveal, Stagger, StaggerItem } from "@/components/Reveal/Reveal";
 import { Button } from "@/components/Button/Button";
+import { ImageFrame } from "@/components/ImageFrame/ImageFrame";
 import { useSeo } from "@/hooks/useSeo";
 
 const values = [
@@ -107,6 +108,54 @@ export function About() {
         </Stagger>
       </section>
 
+      {/* OUR OFFICE */}
+      <section className="relative py-24 sm:py-32 container-px overflow-hidden">
+        <div className="absolute inset-0 opacity-60 [background:radial-gradient(circle_at_85%_10%,rgba(212,175,55,0.10),transparent_55%)]" />
+        <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-center">
+          <div className="order-2 lg:order-1">
+            <SectionHeading
+              direction="left"
+              eyebrow="Our Workspace"
+              title="Where The Work Gets Done"
+              description="Behind every signing, negotiation, and late-night phone call is a team working from real offices in London and Abuja - not a virtual mailbox. It's where we vet opportunities, manage our roster, and stay reachable around the clock."
+            />
+            <Stagger className="mt-10 grid grid-cols-2 gap-6 max-w-sm">
+              <StaggerItem direction="bounce">
+                <p className="font-display text-2xl gold-text">24/7</p>
+                <p className="mt-1 text-xs uppercase tracking-widest text-silver-400">Player Support Line</p>
+              </StaggerItem>
+              <StaggerItem direction="bounce">
+                <p className="font-display text-2xl gold-text">2</p>
+                <p className="mt-1 text-xs uppercase tracking-widest text-silver-400">Offices, One Standard</p>
+              </StaggerItem>
+            </Stagger>
+          </div>
+
+          <Reveal direction="right" className="order-1 lg:order-2 relative group">
+            <div className="relative aspect-[16/10] overflow-hidden">
+              <ImageFrame
+                src="/assets/branding/brand1.jpeg"
+                alt="The GALZVIRT Sports name displayed on our office building at dusk"
+                overlay="soft"
+              />
+            </div>
+            <motion.img
+              src="/assets/branding/brand.jpeg"
+              alt=""
+              aria-hidden="true"
+              loading="lazy"
+              decoding="async"
+              initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
+              whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.9, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+              whileHover={{ rotate: 8, scale: 1.08 }}
+              className="hidden sm:block absolute -bottom-6 -right-6 h-24 w-24 lg:h-28 lg:w-28 rounded-2xl object-cover shadow-2xl border border-gold-500/30"
+            />
+          </Reveal>
+        </div>
+      </section>
+
       <section className="py-24 sm:py-32 container-px">
         <SectionHeading eyebrow="What We Stand For" title="Our Values" align="center" className="mx-auto" />
         <Stagger className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-parchment/10">
@@ -117,6 +166,41 @@ export function About() {
             </StaggerItem>
           ))}
         </Stagger>
+      </section>
+
+      {/* BEHIND THE BRAND */}
+      <section className="relative py-24 sm:py-32 bg-ink-900 container-px overflow-hidden">
+        <div className="absolute inset-0 opacity-50 [background:radial-gradient(circle_at_10%_85%,rgba(212,175,55,0.10),transparent_55%)]" />
+        <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-center">
+          <Reveal direction="left" className="order-2 lg:order-1">
+            <div className="relative h-[380px] sm:h-[460px] max-w-md mx-auto lg:mx-0">
+              <div className="absolute top-0 left-0 h-[68%] w-[62%] overflow-hidden shadow-2xl group">
+                <ImageFrame src="/assets/branding/brand0.jpeg" alt="Official GALZVIRT Sports kit bag" overlay="soft" />
+              </div>
+              <div className="absolute bottom-0 right-0 h-[52%] w-[58%] overflow-hidden shadow-2xl group">
+                <ImageFrame
+                  src="/assets/branding/brand2.jpeg"
+                  alt="GALZVIRT Sports branded beanies"
+                  overlay="soft"
+                />
+              </div>
+            </div>
+          </Reveal>
+
+          <div className="order-1 lg:order-2">
+            <SectionHeading
+              direction="right"
+              eyebrow="Beyond The Contract"
+              title="Every Player Joins The Family"
+              description="Signing with GALZVIRT is more than representation on paper. Every player is welcomed with official kit, a direct line to our team, and a standard of care that carries on long after the ink dries."
+            />
+            <Reveal delay={0.2} direction="right" className="mt-10">
+              <Button to="/services" variant="outline">
+                See What's Included
+              </Button>
+            </Reveal>
+          </div>
+        </div>
       </section>
 
       <section className="py-24 sm:py-32 container-px bg-ink-900">

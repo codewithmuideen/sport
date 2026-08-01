@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import { AnimatePresence } from "framer-motion";
 import { Outlet, useLocation } from "react-router-dom";
 import { Navbar } from "@/components/Navbar/Navbar";
@@ -12,8 +12,15 @@ export function MainLayout() {
   const { pathname } = useLocation();
   const [loading, setLoading] = useState(true);
 
+  // Runs synchronously before paint so the jump happens before the new
+  // page is visible - a plain scrollTop assignment always jumps instantly,
+  // unlike window.scrollTo(), which the site's global smooth-scroll CSS can hijack.
+  useLayoutEffect(() => {
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+  }, [pathname]);
+
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
     setLoading(true);
     const timer = setTimeout(() => setLoading(false), LOADER_DURATION);
     return () => clearTimeout(timer);

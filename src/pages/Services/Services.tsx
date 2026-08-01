@@ -2,6 +2,7 @@ import { SectionHeading } from "@/components/SectionHeading/SectionHeading";
 import { ServiceCard } from "@/components/ServiceCard/ServiceCard";
 import { Reveal, Stagger, StaggerItem } from "@/components/Reveal/Reveal";
 import { Button } from "@/components/Button/Button";
+import { ImageFrame } from "@/components/ImageFrame/ImageFrame";
 import { services } from "@/data/services";
 import { useSeo } from "@/hooks/useSeo";
 
@@ -38,6 +39,36 @@ export function Services() {
         </Stagger>
       </section>
 
+      {/* SIGNING SPOTLIGHT */}
+      <section className="relative py-24 sm:py-32 container-px overflow-hidden">
+        <div className="absolute inset-0 opacity-50 [background:radial-gradient(circle_at_15%_15%,rgba(212,175,55,0.10),transparent_55%)]" />
+        <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-center">
+          <Reveal direction="left" className="relative group">
+            <div className="relative aspect-[3/4] overflow-hidden">
+              <ImageFrame
+                src="/assets/branding/brand5.jpeg"
+                alt="A GALZVIRT-represented player signs his contract, flanked by his agents"
+                overlay="soft"
+                imgClassName="object-left"
+              />
+            </div>
+            <div className="absolute -bottom-6 -right-6 hidden sm:block bg-ink-800 border border-gold-500/30 px-6 py-4">
+              <p className="font-heading uppercase text-xs tracking-widest text-gold-400">Signing Day</p>
+              <p className="mt-1 text-sm text-silver-300">Every Deal, Done Right</p>
+            </div>
+          </Reveal>
+
+          <div>
+            <SectionHeading
+              direction="right"
+              eyebrow="Representation That Lasts"
+              title="It Doesn't End At The Signing Table"
+              description="A signature is where our work begins, not where it ends. Once terms are agreed, our team stays engaged - managing the relationship, protecting the details, and preparing for what comes next."
+            />
+          </div>
+        </div>
+      </section>
+
       <section className="py-28 sm:py-36 bg-ink-900 container-px">
         <div className="max-w-3xl">
           {services.map((s, i) => (
@@ -54,6 +85,25 @@ export function Services() {
             </Reveal>
           ))}
         </div>
+      </section>
+
+      {/* CAMPAIGN BANNER */}
+      <section className="relative py-24 sm:py-32 container-px">
+        <Reveal direction="zoom">
+          <div className="relative aspect-[16/9] sm:aspect-[16/7] overflow-hidden group">
+            <ImageFrame
+              src="/assets/branding/brand5.jpeg"
+              alt="GALZVIRT Sports campaign artwork: Behind every great player is great representation"
+              overlay="bottom"
+            />
+            <div className="absolute bottom-0 left-0 p-8 sm:p-12">
+              <p className="eyebrow mb-3">Our Philosophy</p>
+              <h3 className="font-display uppercase text-2xl sm:text-4xl leading-tight text-balance max-w-lg">
+                Behind Every Great Player Is <span className="gold-text">Great Representation</span>
+              </h3>
+            </div>
+          </div>
+        </Reveal>
       </section>
 
       <section className="py-28 sm:py-36 container-px text-center">

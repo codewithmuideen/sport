@@ -11,6 +11,7 @@ import { LiveNewsCard } from "@/components/LiveNewsCard/LiveNewsCard";
 import { PillarBlock } from "@/components/PillarBlock/PillarBlock";
 import { Button } from "@/components/Button/Button";
 import { Reveal, Stagger, StaggerItem } from "@/components/Reveal/Reveal";
+import { ImageFrame } from "@/components/ImageFrame/ImageFrame";
 import { players } from "@/data/players";
 import { services } from "@/data/services";
 import { useLiveNews } from "@/hooks/useLiveNews";
@@ -63,10 +64,13 @@ export function Home() {
             </Stagger>
           </div>
 
-          <Reveal delay={0.1} direction="right" className="relative">
-            <div className="relative aspect-[4/5] overflow-hidden">
-              <img src="/assets/history.jpg" alt="GALZVIRT player" className="h-full w-full object-cover" />
-              <div className="absolute inset-0 border border-gold-500/20" />
+          <Reveal delay={0.1} direction="right" className="relative group">
+            <div className="relative aspect-[1562/1364] overflow-hidden">
+              <ImageFrame
+                src="/assets/branding/homesec.jpg"
+                alt="A young GALZVIRT talent holds a match ball, ready for the next step in his career"
+                overlay="soft"
+              />
             </div>
             <div className="absolute -bottom-8 -left-8 hidden sm:block bg-ink-800 border border-gold-500/30 px-8 py-6">
               <p className="font-display text-4xl gold-text">2026</p>
@@ -78,6 +82,46 @@ export function Home() {
 
       {/* WHY US */}
       <WhyUs />
+
+      {/* BRAND PRESENCE BANNER */}
+      <section className="relative py-24 sm:py-32 container-px">
+        <Reveal direction="zoom">
+          <div className="relative h-[50vh] sm:h-[60vh] min-h-[380px] overflow-hidden group">
+            <div className="absolute inset-0">
+              <ImageFrame
+                src="/assets/branding/brand4.jpeg"
+                alt="A GALZVIRT Sports billboard campaign displayed on a city street"
+                overlay="bottom"
+                imgClassName="object-[center_32%] !scale-100 group-hover:!scale-110"
+              />
+            </div>
+
+            <div className="absolute bottom-0 left-0 right-0 p-8 sm:p-12 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6">
+              <div className="max-w-xl">
+                <Reveal direction="up">
+                  <p className="eyebrow mb-3">Out In The World</p>
+                </Reveal>
+                <Reveal delay={0.08} direction="up">
+                  <h3 className="font-display uppercase text-2xl sm:text-4xl leading-tight text-balance">
+                    Representation Visible <span className="gold-text">On Every Street</span>
+                  </h3>
+                </Reveal>
+                <Reveal delay={0.16} direction="up">
+                  <p className="mt-4 text-silver-300/90 text-sm sm:text-base leading-relaxed max-w-md">
+                    From billboards to boardrooms, GALZVIRT's presence is built to be seen - a signal to players,
+                    clubs, and brands that we stand behind our word.
+                  </p>
+                </Reveal>
+              </div>
+              <Reveal delay={0.2} direction="right" className="shrink-0">
+                <Button to="/about" variant="outline" className="backdrop-blur-md bg-ink/40">
+                  Our Story →
+                </Button>
+              </Reveal>
+            </div>
+          </div>
+        </Reveal>
+      </section>
 
       {/* SERVICES */}
       <section className="relative py-28 sm:py-36 bg-ink-900 container-px">

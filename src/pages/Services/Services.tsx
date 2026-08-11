@@ -44,12 +44,11 @@ export function Services() {
         <div className="absolute inset-0 opacity-50 [background:radial-gradient(circle_at_15%_15%,rgba(212,175,55,0.10),transparent_55%)]" />
         <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-center">
           <Reveal direction="left" className="relative group">
-            <div className="relative aspect-[3/4] overflow-hidden">
+            <div className="relative aspect-[4/3] sm:aspect-[3/4] overflow-hidden">
               <ImageFrame
-                src="/assets/branding/brand5.jpeg"
-                alt="A GALZVIRT-represented player signs his contract, flanked by his agents"
+                src="/assets/new6.jpg"
+                alt="Two players contesting the ball mid-match"
                 overlay="soft"
-                imgClassName="object-left"
               />
             </div>
             <div className="absolute -bottom-6 -right-6 hidden sm:block bg-ink-800 border border-gold-500/30 px-6 py-4">
@@ -87,23 +86,33 @@ export function Services() {
         </div>
       </section>
 
-      {/* CAMPAIGN BANNER */}
-      <section className="relative py-24 sm:py-32 container-px">
-        <Reveal direction="zoom">
-          <div className="relative aspect-[16/9] sm:aspect-[16/7] overflow-hidden group">
-            <ImageFrame
-              src="/assets/branding/brand5.jpeg"
-              alt="GALZVIRT Sports campaign artwork: Behind every great player is great representation"
-              overlay="bottom"
-            />
-            <div className="absolute bottom-0 left-0 p-8 sm:p-12">
-              <p className="eyebrow mb-3">Our Philosophy</p>
-              <h3 className="font-display uppercase text-2xl sm:text-4xl leading-tight text-balance max-w-lg">
-                Behind Every Great Player Is <span className="gold-text">Great Representation</span>
-              </h3>
-            </div>
-          </div>
-        </Reveal>
+      {/* PHILOSOPHY STATEMENT */}
+      <section className="relative py-28 sm:py-40 container-px overflow-hidden bg-ink-900">
+        <span className="absolute inset-x-0 top-1/2 -translate-y-1/2 text-center font-display font-black text-[16vw] sm:text-[14vw] leading-none text-parchment/[0.04] select-none uppercase pointer-events-none whitespace-nowrap">
+          GALZVIRT
+        </span>
+
+        <div className="absolute inset-0 opacity-60 [background:radial-gradient(circle_at_50%_50%,rgba(212,175,55,0.08),transparent_60%)] pointer-events-none" />
+
+        <div className="relative max-w-4xl mx-auto text-center">
+          <Reveal direction="zoom">
+            <p className="eyebrow mb-6">Our Philosophy</p>
+          </Reveal>
+          <Reveal delay={0.1} direction="up">
+            <h3 className="font-display uppercase text-4xl sm:text-6xl lg:text-7xl leading-[1.05] text-balance">
+              Behind Every Great Player Is <span className="gold-text">Great Representation.</span>
+            </h3>
+          </Reveal>
+          <Reveal delay={0.2} direction="zoom">
+            <div className="mx-auto mt-10 h-px w-24 bg-gradient-to-r from-transparent via-gold-500/60 to-transparent" />
+          </Reveal>
+          <Reveal delay={0.28} direction="up">
+            <p className="mt-10 text-silver-300/90 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
+              Contracts open doors. What happens after is what actually builds a career - the calls that get
+              made, the details that get protected, and a standard of care that never slips.
+            </p>
+          </Reveal>
+        </div>
       </section>
 
       <section className="py-28 sm:py-36 container-px text-center">

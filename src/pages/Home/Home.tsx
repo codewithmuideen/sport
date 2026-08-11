@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Hero } from "@/components/Hero/Hero";
 import { SectionHeading } from "@/components/SectionHeading/SectionHeading";
-import { PlayerCard } from "@/components/PlayerCard/PlayerCard";
+import { FeaturedPlayersStack } from "@/components/players/FeaturedPlayersStack";
 import { ServiceCard } from "@/components/ServiceCard/ServiceCard";
 import { ProcessStack } from "@/components/ProcessStack/ProcessStack";
 import { OfferGrid } from "@/components/OfferGrid/OfferGrid";
@@ -67,7 +67,7 @@ export function Home() {
           <Reveal delay={0.1} direction="right" className="relative group">
             <div className="relative aspect-[1562/1364] overflow-hidden">
               <ImageFrame
-                src="/assets/branding/homesec.jpg"
+                src="/assets/history.jpg"
                 alt="A young GALZVIRT talent holds a match ball, ready for the next step in his career"
                 overlay="soft"
               />
@@ -85,40 +85,38 @@ export function Home() {
 
       {/* BRAND PRESENCE BANNER */}
       <section className="relative py-24 sm:py-32 container-px">
-        <Reveal direction="zoom">
-          <div className="relative h-[50vh] sm:h-[60vh] min-h-[380px] overflow-hidden group">
-            <div className="absolute inset-0">
-              <ImageFrame
-                src="/assets/branding/brand4.jpeg"
-                alt="A GALZVIRT Sports billboard campaign displayed on a city street"
-                overlay="bottom"
-                imgClassName="object-[center_32%] !scale-100 group-hover:!scale-110"
-              />
-            </div>
+        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-10 sm:mb-14">
+          <div className="max-w-2xl">
+            <Reveal direction="up">
+              <p className="eyebrow mb-3">Out In The World</p>
+            </Reveal>
+            <Reveal delay={0.08} direction="up">
+              <h3 className="font-display uppercase text-3xl sm:text-4xl lg:text-5xl leading-tight text-balance">
+                Representation Visible <span className="gold-text">On Every Street</span>
+              </h3>
+            </Reveal>
+            <Reveal delay={0.16} direction="up">
+              <p className="mt-5 text-silver-300/90 text-sm sm:text-base leading-relaxed max-w-md">
+                From billboards to boardrooms, GALZVIRT's presence is built to be seen - a signal to players,
+                clubs, and brands that we stand behind our word.
+              </p>
+            </Reveal>
+          </div>
+          <Reveal delay={0.2} direction="right" className="shrink-0">
+            <Button to="/about" variant="outline">
+              Our Story →
+            </Button>
+          </Reveal>
+        </div>
 
-            <div className="absolute bottom-0 left-0 right-0 p-8 sm:p-12 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6">
-              <div className="max-w-xl">
-                <Reveal direction="up">
-                  <p className="eyebrow mb-3">Out In The World</p>
-                </Reveal>
-                <Reveal delay={0.08} direction="up">
-                  <h3 className="font-display uppercase text-2xl sm:text-4xl leading-tight text-balance">
-                    Representation Visible <span className="gold-text">On Every Street</span>
-                  </h3>
-                </Reveal>
-                <Reveal delay={0.16} direction="up">
-                  <p className="mt-4 text-silver-300/90 text-sm sm:text-base leading-relaxed max-w-md">
-                    From billboards to boardrooms, GALZVIRT's presence is built to be seen - a signal to players,
-                    clubs, and brands that we stand behind our word.
-                  </p>
-                </Reveal>
-              </div>
-              <Reveal delay={0.2} direction="right" className="shrink-0">
-                <Button to="/about" variant="outline" className="backdrop-blur-md bg-ink/40">
-                  Our Story →
-                </Button>
-              </Reveal>
-            </div>
+        <Reveal direction="zoom" delay={0.1}>
+          <div className="relative aspect-[4/3] sm:aspect-[16/9] lg:aspect-[21/9] overflow-hidden group">
+            <ImageFrame
+              src="/assets/branding/brand4.jpeg"
+              alt="A GALZVIRT Sports billboard campaign displayed on a city street"
+              overlay="soft"
+              imgClassName="object-[center_32%]"
+            />
           </div>
         </Reveal>
       </section>
@@ -187,13 +185,7 @@ export function Home() {
             </div>
           </Reveal>
         ) : (
-          <Stagger className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {featured.map((player, i) => (
-              <StaggerItem key={player.id} direction="bounce">
-                <PlayerCard player={player} index={i} />
-              </StaggerItem>
-            ))}
-          </Stagger>
+          <FeaturedPlayersStack players={featured} />
         )}
       </section>
 

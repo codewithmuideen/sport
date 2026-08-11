@@ -78,7 +78,7 @@ export function About() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <Reveal direction="left">
             <div className="relative aspect-[4/5] overflow-hidden">
-              <img src="/assets/bg2.jpg" alt="Team" className="h-full w-full object-cover" />
+              <img src="/assets/new3.jpg" alt="Team" className="h-full w-full object-cover" />
               <div className="absolute inset-0 border border-gold-500/20" />
             </div>
           </Reveal>
@@ -175,11 +175,11 @@ export function About() {
           <Reveal direction="left" className="order-2 lg:order-1">
             <div className="relative h-[380px] sm:h-[460px] max-w-md mx-auto lg:mx-0">
               <div className="absolute top-0 left-0 h-[68%] w-[62%] overflow-hidden shadow-2xl group">
-                <ImageFrame src="/assets/branding/brand0.jpeg" alt="Official GALZVIRT Sports kit bag" overlay="soft" />
+                <ImageFrame src="/assets/new22.jpg" alt="Official GALZVIRT Sports kit bag" overlay="soft" />
               </div>
               <div className="absolute bottom-0 right-0 h-[52%] w-[58%] overflow-hidden shadow-2xl group">
                 <ImageFrame
-                  src="/assets/branding/brand2.jpeg"
+                  src="/assets/bg0.jpg"
                   alt="GALZVIRT Sports branded beanies"
                   overlay="soft"
                 />

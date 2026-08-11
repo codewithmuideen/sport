@@ -19,13 +19,21 @@ export interface CareerStop {
   years: string;
 }
 
+export interface PlayerVideo {
+  type: "youtube" | "local";
+  src: string;
+  poster?: string;
+}
+
 export interface Player {
   id: string;
   name: string;
-  position: Position;
-  nationality: string;
-  club: string;
+  position?: Position;
+  nationality?: string;
+  club?: string;
+  /** Empty string means no photo yet - render the "awaiting" placeholder. */
   image: string;
+  video?: PlayerVideo;
   dob?: string;
   height?: string;
   foot?: "Left" | "Right" | "Both";

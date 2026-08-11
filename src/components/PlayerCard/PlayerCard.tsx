@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
 import type { Player } from "@/types";
+import { PlayerPhoto } from "@/components/players/PlayerPhoto";
 
 export function PlayerCard({ player, index = 0 }: { player: Player; index?: number }) {
   const flip = index % 2 === 1;
+  const subtitle = [player.nationality, player.club].filter(Boolean).join(" · ");
 
   return (
     <Link
@@ -10,13 +12,17 @@ export function PlayerCard({ player, index = 0 }: { player: Player; index?: numb
       className="group relative block aspect-[3/4] overflow-hidden bg-ink-800 border border-parchment/10 hover:border-gold-500/40 transition-colors duration-500"
     >
       <div className="absolute inset-0 bg-gradient-to-b from-ink-700 to-ink-900" />
-      <img
-        src={player.image}
-        alt={player.name}
-        loading="lazy"
-        style={flip ? { transform: "scaleX(-1)" } : undefined}
-        className="absolute inset-0 h-full w-full object-contain object-bottom p-4 transition-transform duration-700 ease-out group-hover:scale-105"
-      />
+      {player.image ? (
+        <img
+          src={player.image}
+          alt={player.name}
+          loading="lazy"
+          style={flip ? { transform: "scaleX(-1)" } : undefined}
+          className="absolute inset-0 h-full w-full object-contain object-bottom p-4 transition-transform duration-700 ease-out group-hover:scale-105"
+        />
+      ) : (
+        <PlayerPhoto src="" name={player.name} className="absolute inset-0 h-full w-full border-0" />
+      )}
 
       <div className="absolute inset-0 bg-ink-fade opacity-80 group-hover:opacity-95 transition-opacity duration-500" />
 
@@ -25,11 +31,9 @@ export function PlayerCard({ player, index = 0 }: { player: Player; index?: numb
       </span>
 
       <div className="absolute inset-x-0 bottom-0 p-6 translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
-        <p className="eyebrow mb-1">{player.position}</p>
+        <p className="eyebrow mb-1">{player.position ?? "GALZVIRT Player"}</p>
         <h3 className="font-heading text-2xl uppercase text-parchment">{player.name}</h3>
-        <p className="text-silver-400 text-sm mt-1">
-          {player.nationality} &middot; {player.club}
-        </p>
+        {subtitle && <p className="text-silver-400 text-sm mt-1">{subtitle}</p>}
         <span className="mt-4 inline-flex items-center gap-2 text-xs uppercase tracking-widest text-gold-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
           View Profile
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" className="translate-x-0 group-hover:translate-x-1 transition-transform">

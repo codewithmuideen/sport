@@ -8,6 +8,9 @@ import { Services } from "@/pages/Services/Services";
 import { News } from "@/pages/News/News";
 import { NewsDetails } from "@/pages/NewsDetails/NewsDetails";
 import { Contact } from "@/pages/Contact/Contact";
+import { Privacy } from "@/pages/Privacy/Privacy";
+import { Terms } from "@/pages/Terms/Terms";
+import { Cookies } from "@/pages/Cookies/Cookies";
 import { NotFound } from "@/pages/NotFound/NotFound";
 
 export default function App() {
@@ -22,6 +25,9 @@ export default function App() {
         <Route path="/news" element={<News />} />
         <Route path="/news/:slug" element={<NewsDetails />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/privacy-policy" element={<Privacy />} />
+        <Route path="/terms-of-service" element={<Terms />} />
+        <Route path="/cookie-settings" element={<Cookies />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>

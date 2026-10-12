@@ -282,17 +282,17 @@ export function Footer() {
             <p>&copy; {new Date().getFullYear()} GALZVIRT Sports Agency. All rights reserved.</p>
 
             <div className="flex flex-wrap items-center justify-center md:justify-end gap-x-4 gap-y-2">
-              <a href="#" className="hover:text-gold-400 transition-colors whitespace-nowrap">
+              <Link to="/privacy-policy" className="hover:text-gold-400 transition-colors whitespace-nowrap">
                 Privacy Policy
-              </a>
+              </Link>
               <span className="w-1 h-1 rounded-full bg-parchment/20 hidden sm:inline-block" />
-              <a href="#" className="hover:text-gold-400 transition-colors whitespace-nowrap">
+              <Link to="/terms-of-service" className="hover:text-gold-400 transition-colors whitespace-nowrap">
                 Terms of Service
-              </a>
+              </Link>
               <span className="w-1 h-1 rounded-full bg-parchment/20 hidden sm:inline-block" />
-              <a href="#" className="hover:text-gold-400 transition-colors whitespace-nowrap">
+              <Link to="/cookie-settings" className="hover:text-gold-400 transition-colors whitespace-nowrap">
                 Cookie Settings
-              </a>
+              </Link>
             </div>
           </div>
         </div>
